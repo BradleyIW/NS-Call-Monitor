@@ -20,7 +20,7 @@ class ServerUrlProvider @Inject constructor(
         port = port()
     )
 
-    private fun port(): Int = BuildConfig.CALL_MONITOR_SERVER_PORT.toInt()
+    private fun port(): Int = BuildConfig.CALL_MONITOR_SERVER_PORT
 
     private fun ipAddress(): String? =
         activeNetworkLinkProperties()?.let {

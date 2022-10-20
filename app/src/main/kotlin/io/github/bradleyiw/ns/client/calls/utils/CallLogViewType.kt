@@ -1,5 +1,4 @@
 @file:Suppress("MagicNumber")
-
 package io.github.bradleyiw.ns.client.calls.utils
 
 enum class CallLogViewType(val type: Int) {

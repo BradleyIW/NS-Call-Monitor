@@ -7,10 +7,6 @@ plugins {
     id 'io.gitlab.arturbosch.detekt'
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def serverPort = properties.getProperty('serverPort') ?: ' '
-
 android {
     namespace 'io.github.bradleyiw.ns'
     compileSdk 33
@@ -37,7 +33,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "CALL_MONITOR_SERVER_PORT", "\"$serverPort\""
+        buildConfigField "int", "CALL_MONITOR_SERVER_PORT", "12345"
     }
 
     buildTypes {
