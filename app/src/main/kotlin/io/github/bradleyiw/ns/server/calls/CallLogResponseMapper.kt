@@ -1,7 +1,7 @@
 package io.github.bradleyiw.ns.server.calls
 
-import io.github.bradleyiw.ns.common.calls.utils.PhoneNumberFormatter
 import io.github.bradleyiw.ns.common.calls.domain.CallLog
+import io.github.bradleyiw.ns.common.calls.utils.PhoneNumberFormatter
 import io.github.bradleyiw.ns.core.extension.toDuration
 
 class CallLogResponseMapper(private val phoneNumberFormat: PhoneNumberFormatter) {

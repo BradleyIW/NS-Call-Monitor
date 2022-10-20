@@ -1,6 +1,6 @@
 package io.github.bradleyiw.ns.server.calls
 
-import io.github.bradleyiw.ns.core.LocalDateTimeSerializer
+import io.github.bradleyiw.ns.core.serialization.LocalDateTimeSerializer
 import java.time.LocalDateTime
 
 @kotlinx.serialization.Serializable

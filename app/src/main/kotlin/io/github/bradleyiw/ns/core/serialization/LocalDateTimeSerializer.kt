@@ -1,4 +1,4 @@
-package io.github.bradleyiw.ns.core
+package io.github.bradleyiw.ns.core.serialization
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind
