@@ -1,7 +1,6 @@
 # NS Call Monitor
 
-An application that will allow you to monitoring incoming and outgoing call. It'll monitor incoming,
-outgoing and missed calls and display them within the application UI.
+An application that will allow you to monitor incoming and outgoing calls.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/57259490/196995443-57966090-0541-4dca-99ef-e0b40568b214.gif" height="500"/>
@@ -23,7 +22,7 @@ outgoing and missed calls and display them within the application UI.
     - DataBinding: Used to update the Server Details View on the dashboard based on observations
       from the DashboardViewModel.
     - Room: A database consisting of two tables serving the Call Logs (call_log) + Query Count (
-      call_query_log) shared between client and server.
+      call_log_query) shared between client and server.
     - [Hilt](https://dagger.dev/hilt/): for dependency injection.
 - Architecture
     - Clean MVVM Architecture (View - DataBinding - ViewModel - UseCase - Model)

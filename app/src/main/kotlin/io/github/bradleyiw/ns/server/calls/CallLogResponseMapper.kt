@@ -11,7 +11,7 @@ class CallLogResponseMapper(private val phoneNumberFormat: PhoneNumberFormatter)
             number = phoneNumberFormat.format(log.number),
             startTime = log.startTime,
             endTime = log.endTime,
-            duration = log.endTime?.let { log.startTime?.toDuration(it) }?.toMillis(),
+            duration = log.endTime?.let { log.startTime?.toDuration(it) }?.toMillis() ?: 0,
             status = log.status.toString(),
             type = log.type.toString(),
             numberOfQueries = log.numberOfQueries

@@ -11,7 +11,7 @@ class CallLogResponse(
     val startTime: LocalDateTime?,
     @kotlinx.serialization.Serializable(with = LocalDateTimeSerializer::class)
     val endTime: LocalDateTime?,
-    val duration: Long?,
+    val duration: Long,
     val status: String,
     val type: String,
     val numberOfQueries: Int
