@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="call_log_item_padding">16dp</dimen>
+    <dimen name="call_log_item_contact_name_margin">16dp</dimen>
+    <dimen name="call_log_item_contact_number_margin">16dp</dimen>
+    <dimen name="call_log_item_call_time_margin_start">4dp</dimen>
+    <dimen name="call_log_item_call_time_margin_top">2dp</dimen>
+    <dimen name="call_logs_header_margin">16dp</dimen>
+    <dimen name="dashboard_server_details_title_margin">16dp</dimen>
+    <dimen name="dashboard_server_url_margin">16dp</dimen>
+    <dimen name="dashboard_monitor_call_title_margin">16dp</dimen>
+    <dimen name="dashboard_monitor_calls_button_margin_top">8dp</dimen>
+    <dimen name="dashboard_monitor_calls_button_margin_end">16dp</dimen>
+    <dimen name="dashboard_no_logs_view_root_padding">10dp</dimen>
+    <dimen name="dashboard_no_calls_item_title_margin">10dp</dimen>
+    <dimen name="dashboard_no_calls_item_title_padding">5dp</dimen>
+</resources>

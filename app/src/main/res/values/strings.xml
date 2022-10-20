@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">NS Call Monitor</string>
+    <string name="call_monitoring_service_description">This Service will listen for incoming and outgoing calls where you can track the logs through the NS Call Monitor application on your device.</string>
+
+    <string name="empty" />
+    <string name="dashboard_server_details_ip_address_label">IP Address: %1$s</string>
+    <string name="dashboard_server_details_port_label">Port: %1$s</string>
+    <string name="start_monitoring_calls">Start</string>
+    <string name="top_monitoring_calls">Stop</string>
+    <string name="unknown_caller">Unknown</string>
+    <string name="duration_in_hours">%1$d h %2$d mins</string>
+    <string name="duration_in_minutes">%1$d m %2$d secs</string>
+    <string name="server_details">Server Details</string>
+    <string name="monitor_calls">Monitor Calls</string>
+    <string name="no_call_logs_title">Nothing yet.</string>
+    <string name="no_call_logs_description">Don\'t worry, your calls will appear here when monitored.</string>
+    <string name="call_monitoring_permissions_granted">Call monitoring permissions have been granted</string>
+    <string name="ok">OK</string>
+    <string name="call_monitoring_permissions_denied">Unfortunately, you need to accept all of the permissions to monitor your phone calls.</string>
+    <string name="permission_not_available">Permission not available</string>
+    <string name="call_monitoring_notification_title">NS Call Monitor is monitoring your calls</string>
+</resources>

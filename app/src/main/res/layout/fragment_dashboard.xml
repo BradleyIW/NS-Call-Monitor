@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callLogEmptyViewVisible"
+            type="Boolean" />
+
+        <variable
+            name="viewModel"
+            type="io.github.bradleyiw.ns.client.dashboard.presentation.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activityDashboardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
+        tools:context=".dashboard.presentation.DashboardActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/server_details_title_text_view"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dashboard_server_details_title_margin"
+            android:text="@string/server_details"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/server_ip_address_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dashboard_server_url_margin"
+            android:text="@{viewModel.serverUrlLiveData}"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/server_details_title_text_view"
+            tools:text="http://192.0.2.130/12345" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/monitor_calls_title_text_view"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dashboard_monitor_call_title_margin"
+            android:text="@string/monitor_calls"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/start_or_stop_server_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dashboard_monitor_calls_button_margin_top"
+            android:layout_marginEnd="@dimen/dashboard_monitor_calls_button_margin_end"
+            android:backgroundColor="@{viewModel.isServiceRunningLiveData ? @color/valencia : @color/shamrock}"
+            android:text="@{viewModel.isServiceRunningLiveData ? @string/top_monitoring_calls : @string/start_monitoring_calls}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/monitor_calls_title_text_view"
+            tools:background="@color/valencia"
+            tools:text="@string/start_monitoring_calls" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/call_logs_header_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/call_logs_header_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/start_or_stop_server_button" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/call_logs_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorPrimaryContainer"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/call_logs_header_divider"
+            tools:listitem="@layout/item_call_log" />
+
+        <include
+            android:id="@+id/call_logs_empty_state"
+            layout="@layout/item_no_logs"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{callLogEmptyViewVisible ? View.VISIBLE : View.GONE}"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/call_logs_header_divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

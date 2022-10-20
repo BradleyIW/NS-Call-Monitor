@@ -1,0 +1,17 @@
+<resources>
+
+    <style name="Theme.NSCallMonitor" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorPrimaryContainer">#1F1B24</item>
+        <item name="colorSecondaryContainer">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/electric_cyan</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="backgroundColor">@color/primary_background</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+</resources>
