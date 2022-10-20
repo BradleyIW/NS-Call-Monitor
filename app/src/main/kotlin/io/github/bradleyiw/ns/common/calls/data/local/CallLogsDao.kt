@@ -18,8 +18,8 @@ interface CallLogsDao {
     fun callLogs(): Flow<List<CallLogEntity>>
 
     @Query(
-        "SELECT call_log.*, call_log_query.number_of_queries FROM call_log " +
-                "LEFT JOIN call_log_query ON call_log.id = call_log.id ORDER BY created_at DESC"
+        "SELECT call_log.*, call_log_query.number_of_queries FROM call_log LEFT JOIN call_log_query " +
+                "ON call_log.id = call_log_query.call_log_id ORDER BY created_at DESC"
     )
     suspend fun latestCallLogsWithCount(): List<CallLogEntityWithCount>
 

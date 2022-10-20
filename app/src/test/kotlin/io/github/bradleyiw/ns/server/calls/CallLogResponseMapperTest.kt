@@ -67,10 +67,10 @@ internal class CallLogResponseMapperTest : UnitTest() {
     }
 
     @Test
-    fun `Given endTime is null, when toCallLogResponse, then assert duration is null`() {
+    fun `Given endTime is null, when toCallLogResponse, then assert duration is zero`() {
         every { callLog.startTime } returns LocalDateTime.of(2022, 10, 18, 10, 30, 0)
         val response = callLogResponseMapper.toCallLogResponse(callLog)
-        Assertions.assertNull(response.duration)
+        Assertions.assertEquals(response.duration, 0)
     }
 
     @Test

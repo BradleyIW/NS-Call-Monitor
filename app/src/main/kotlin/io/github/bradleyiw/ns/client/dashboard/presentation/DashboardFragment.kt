@@ -34,6 +34,10 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard),
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
 
+    private val listAdapter: CallLogsListAdapter by lazy {
+        CallLogsListAdapter()
+    }
+
     private val permissions = arrayOf(
         Manifest.permission.READ_PHONE_STATE,
         Manifest.permission.READ_CALL_LOG,
@@ -68,8 +72,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard),
         binding.lifecycleOwner = this
 
         initCallMonitoringButton()
-        initAndSubscribeCallLogs()
-
+        initCallLogs()
+        observeCallLogChanges()
         return binding.root
     }
 
@@ -83,10 +87,9 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard),
         _binding = null
     }
 
-    private fun initAndSubscribeCallLogs() {
+    private fun initCallLogs() {
         val recyclerView = binding.callLogsRecyclerView
         val emptyDataObserver = EmptyCallLogsDataObserver(recyclerView, binding)
-        val listAdapter = CallLogsListAdapter()
         listAdapter.registerAdapterDataObserver(emptyDataObserver)
         recyclerView.addItemDecoration(
             DividerItemDecoration(
@@ -95,13 +98,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard),
             )
         )
         recyclerView.adapter = listAdapter
-        lifecycleScope.launch {
-            dashboardViewModel.callLogs
-                .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
-                .collect {
-                    listAdapter.submitList(it)
-                }
-        }
     }
 
     private fun initCallMonitoringButton() {
@@ -109,6 +105,16 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard),
             checkPermissions {
                 onCallMonitoringButtonClicked()
             }
+        }
+    }
+
+    private fun observeCallLogChanges() {
+        lifecycleScope.launch {
+            dashboardViewModel.callLogs
+                .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
+                .collect {
+                    listAdapter.submitList(it)
+                }
         }
     }
 
