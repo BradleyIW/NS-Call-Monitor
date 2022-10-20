@@ -46,11 +46,11 @@ missed calls and display them within the application UI.
   {
     "name": "Jane Doe",
     "number": "+49 50 234593848",
-    "startTime": "2022-10-18T01:04:22.34Z",
-    "endTime": "2022-10-18T01:04:29.232Z",
+    "startTime": null,
+    "endTime": null,
     "duration": 6892,
     "status": "Ringing",
-    "type": "Outgoing",
+    "type": "Incoming",
     "numberOfQueries": 5
   }
 ]
@@ -60,7 +60,6 @@ missed calls and display them within the application UI.
 
 ```
 No monitored calls available.
-
 ```
 
 ## Ongoing Call
