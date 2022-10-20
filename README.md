@@ -36,9 +36,28 @@ An application that will allow you to monitor incoming and outgoing calls.
 
 ### Root
 
+#### Model
+
+###### Services
+
+
+| Type                          | Description                                                      |
+|-------------------------------|------------------------------------------------------------------|
+| **startTime: String**         | Start time of the server.                                        |
+| **services: Array**           | List of endpoints on the server                                  |
+
+###### Service
+
+| Type                          | Description                                                      |
+|-------------------------------|------------------------------------------------------------------|
+| **name: String**              | Endpoint name                                                    |
+| **uri: String**               | Full uri for endpoint                                            |
+
+#### Responses
+
 `curl http://<SERVER_HOST>:<PORT>`
 
-###### # (200) Success Response
+###### (200) Success Response
 
 ```json
 {
@@ -58,9 +77,24 @@ An application that will allow you to monitor incoming and outgoing calls.
 
 ### Logs
 
+#### Model
+
+| Type                          | Description                                                      |
+|-------------------------------|------------------------------------------------------------------|
+| **name: String \| null**      | Name of contact, null if unknown                                 |
+| **number: String**            | Number of contact formatted based on Locale                      |
+| **startTime: String \| null** | Time call is answered in ISO 8601 format using UTC timezone. null if call is ringing. |
+| **endTime: String \| null**   | Time call ends in ISO 8601 format using UTC timezone. null if call is ongoing or missed.|
+| **duration: Number**          | Duration of call in milliseconds                                 |
+| **status: String**            | Status of call. Options are: Ringing, Missed, Ongoing, Complete. |
+| **type: String**              | Type of call. Options are: Incoming, Outgoing.                   |
+| **numberOfQueries: Number**   | Number of times this call log has been queried                   |
+
+#### Responses
+
 `curl http://<SERVER_HOST>:<PORT>/logs`
 
-###### # (200) Success Response
+###### (200) Success Response
 
 ```json
 [
@@ -87,7 +121,7 @@ An application that will allow you to monitor incoming and outgoing calls.
 ]
 ```
 
-###### # (404) Error Response
+####### (404) Error Response
 
 ```
 No monitored calls available.
