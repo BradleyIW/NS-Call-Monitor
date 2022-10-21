@@ -121,7 +121,7 @@ An application that will allow you to monitor incoming and outgoing calls.
 ]
 ```
 
-####### (404) Error Response
+###### (404) Error Response
 
 ```
 No monitored calls available.
@@ -131,7 +131,7 @@ No monitored calls available.
 
 `curl http://<SERVER_HOST>:<PORT>/ongoing`
 
-###### # (200) Success Response
+###### (200) Success Response
 
 ```json
 {
@@ -146,7 +146,7 @@ No monitored calls available.
 }
 ```
 
-###### # (404) Error Response
+###### (404) Error Response
 
 ```
 There are no ongoing calls happening.
